@@ -9,6 +9,7 @@ ARG KITEMATIC_VERSION
 ARG VBOX_VERSION
 ARG VBOX_REV
 ARG MIXPANEL_TOKEN
+ARG BOOT_2_DOCKER_VERSION
 
 RUN apt-get update && apt-get -y install \
 		autoconf build-essential curl \
@@ -47,7 +48,7 @@ RUN chmod +x /docker-machine
 RUN curl -fsSL -o /docker-compose https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-Darwin-x86_64
 RUN chmod +x /docker-compose
 
-RUN curl -fsSL -o /boot2docker.iso https://github.com/boot2docker/boot2docker/releases/download/v$DOCKER_VERSION/boot2docker.iso
+RUN curl -fsSL -o /boot2docker.iso https://github.com/boot2docker/boot2docker/releases/download/v$BOOT_2_DOCKER_VERSION/boot2docker.iso
 RUN curl -fsSL -o /kitematic.zip https://github.com/kitematic/kitematic/releases/download/v$KITEMATIC_VERSION/Kitematic-$KITEMATIC_VERSION-Mac.zip
 
 #  Extract the VirtualBox .pkg
